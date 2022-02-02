@@ -1,89 +1,39 @@
-// Function computerPlay returns random choice of rock, paper, or scissors, stores it in variable computerSelection
+function capitalize(playerPrompt) {
+    return playerPrompt.charAt(0).toUpperCase() + playerPrompt.slice(1).toLowerCase();
+}
 
-// Function changeCase takes user input and returns version with first letter capitalized and rest not
+function playRound(playerSelection, computerSelection) {
+    let result;
+    if (playerSelection === "Rock") {
+        (computerSelection === "Rock") ? result = "You tied!" :
+        (computerSelection === "Paper") ? result = "You lose! Paper beats Rock!" :  result = "You win! Rock beats Scissors!";
+    } else if (playerSelection === "Paper") {
+        (computerSelection === "Rock") ? result = "You win! Paper beats Rock!" :
+        (computerSelection === "Paper") ? result = "You tied!" : result = "You lose! Scissors beats paper!";
+    } else if (playerSelection === "Scissors") {
+        (computerSelection === "Rock") ? result = "You lose! Rock beats Scissors!" :
+        (computerSelection === "Paper") ? result = "You win! Scissors beats Paper!" : result = "You tied!";
+    } else {
+        result =  "Oops, something went wrong.";
+    }
+    console.log(result);
+}
+function game() {
+    let playerPrompt = prompt("You choose: Rock, Paper, or Scissors?");
+    let playerSelection = capitalize(playerPrompt);
 
-// Function game {
-
-    // Function match {
-
-        // User inputs choice, stored in variable playerSelection
-
-        // Run computerPlay
-
-        // If user inputs rock
-
-            // Check if computer chose rock
-
-                // If it did, result is tie
-
-            // Check if computer chose paper
-
-                // If it did, result is computer wins
-
-            // Check if computer chose scissors
-
-                // If it did, result is user wins
-
-        // If user inputs paper
-
-            // Check if computer chose rock
-
-                // If it did, result is user wins
-
-            // Check if computer chose paper
-
-                // If it did, result is tie
-
-            // Check if computer chose scissors
-
-                // If it did, result is computer wins
-
-        // If user inputs scissors
-
-            // Check if computer chose rock
-
-                // If it did, result is computer wins
-
-            // Check if computer chose paper
-
-                // If it did, result is user wins
-
-            // Check if computer chose scissors
-
-                // If it did, result is computer wins
-
-        // If result is tie 
-
-            // Return "You tied! Try again!"
-
-        // If result is user wins
-
-            // Return "You win! X beats Y"
-
-        // If result is computer wins
-
-            // Return "Computer wins! X beats Y"
-
-        // Otherwise, give an error message "Oops, something went wrong"
-
-    // }
-
-    // Run Match
-
-    // Run Match
-
-    // Run Match
-
-    // Run Match
-
-    // Run Match
-
-    // If user won 3+ matches,
-
-        // Return "You won! Congratulations!"
-
-    // If computer won 3+ matches
-
-        // Return "Oof, you lost! That sucks!"
-
-// }
+    const computerChoices = [
+        "Rock",
+        "Paper",
+        "Scissors"
+    ]
+    let computerSelection = computerChoices[Math.floor(Math.random() * 
+    computerChoices.length)];
+    console.log(computerSelection);
+    playRound(playerSelection, computerSelection);
+}
+game();
+game();
+game();
+game();
+game();
